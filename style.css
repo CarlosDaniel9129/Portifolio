@@ -7,6 +7,86 @@
 *{ /*para todos os elementos do documento*/
     margin: 0;
     padding: 0;
+    list-style: none; /*tira bolinhas do link*/
+    text-decoration: none; /*tira o sublinhado*/
+}
+
+:root{ /*define algo padrao para o documento HTML*/
+    --font-primary: "Baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Muli", serif;
+}
+
+.hamburguer{
+  
+    width: 2rem;
+    height: 2rem;
+    position: fixed; /*mantemm o elemento fixo*/
+    z-index: 100; /*traz para frente o elemento*/
+    right: 2rem; /*joga pro lado*/
+    top: 2rem; /*distancia do topo*/
+    display: flex; /*permite movimentar no flex*/
+    flex-direction: column; /*vai ser em coluna, uma abaqixo do outro*/
+    justify-content: space-evenly; /*espalha os elementos*/
+    cursor: pointer; /*cursor mãozinha*/
+    
+}
+
+.show-menu .hamburguer{ /*desc de show, tem essa forma se deu mudanaça pelo JS*/
+    right: 16rem;
+}
+
+.line{
+    width: 100%; /*ocupa 100% dop pai*/
+    height: .1rem; /*uma fracao*/
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 1px black;
+              /*  x       y   borrar  */
+     /*quando receber uma transform*/
+}
+
+.show-menu #line1{
+    background-color: black;
+    box-shadow: none;
+    transform: rotate(45deg) translate(.3rem, .45rem); /*deixo elea inclinada*/
+}                         /*   muda posi   X     Y    */
+.show-menu #line2{ /*quando estiver no estado de showmenu do JS, é removida*/
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line3{
+    background-color: black;
+    box-shadow: none;
+    transform: rotate(-45deg) translate(.3rem, -.47rem);
+   
+}
+
+.hamburguer span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex; /*permite alinhar texto*/
+    justify-content: center;
+    align-items: center;
+    background-color: #a044ff;
+    color: white;
+    font-family: var(--font-action);
+    opacity: 0;
+}
+
+.hamburguer span::before{ /*pseudo elemento, cria a pequena flecha*/
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #a044ff;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+
+.show-menu .hamburguer:hover span{ /*so mostra com a classe show-menu e o evento de hover ao mesmo time*/
+    opacity: 1;
 }
 header{
     width: 100%;
@@ -48,7 +128,7 @@ header{
 .banner h1{
     color: #ffffff;
     font-size: 3.5rem; /*permite alterar o tamanho quando der zoom, atraves dos elemento padrao(pai)*/
-    font-family: "Baloo Da 2", serif;
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .2rem .3rem 2px rgba(0, 0, 0, 0.4);
     line-height: 3.5rem; /*para determinar o distancimento da linha*/
@@ -59,7 +139,7 @@ header{
 }
 
 .banner p{
-    font-family: "Josefin Slab", serif;
+    font-family: var(--font-secundary);
     color: #ffffff;
     font-size: 2rem;
     text-shadow: .2rem .2rem rgba(0, 0, 0, 0.4);
@@ -69,7 +149,7 @@ header{
 }
 
 .banner button{
-    font-family: "Muli", serif;
+    font-family: var(--font-action);
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.1rem; /*epaçamento de letras*/
@@ -96,4 +176,66 @@ header{
         transform: translateY(0) rotateY(0);
         opacity: 1;
     }
+}
+
+.sidebar{
+    width: 20rem;
+    height: 100vh; /*tamanho exato da tela*/
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -20rem; /*joga pra fora da tela*/
+    transition: all 1s;
+}
+
+.show-menu .sidebar{
+    right: 0; /*ao clicar a position fica no canto da tela, no no caso visivil*/
+}
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%; /*afasta das bordar*/
+    transform: translate(-50%, -50%); /*centraliza, apartir do eixo x e y*/
+
+}
+
+.menu-item{
+    text-align: center; 
+    margin-bottom: .5rem;
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555;
+    transition: color 1s; /*transicao para mudar a cor so elemento color em 1 segundo*/
+}
+
+.menu-link:hover{
+    color: #6a3893;
+}
+
+.social-media{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex; /*permite distribuir os elementos na linha*/
+    justify-content: space-evenly; /*espalha na linha*/
+}
+
+.social-media i{ /*formata os icones*/
+    background-color: #6a3093;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center; /*alinha no x*/
+    align-items: center; /*alinha no y*/
+    transition: background-color 1s;
+} 
+
+.social-media i:hover{
+    background-color: #a044ff;
 }

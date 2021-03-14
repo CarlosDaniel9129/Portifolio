@@ -16,6 +16,14 @@
 <body>
 
     <div class="container">
+
+        <div class="hamburguer">
+            <div class="line" id="line1"></div>
+            <div class="line" id="line2"></div>
+            <div class="line" id="line3"></div>
+            <span>Fechar</span> <!--para dar a pequaqna mensagem de fechar-->
+        </div>
+
         <header>
             <div class="img-wrapper">
                 <img src="Imagens/background.jpg" alt="">
@@ -23,11 +31,30 @@
             <div class="banner">
                 <h1>Web Developer & Front End Designer</h1>
                 <p>Carlos Daniel</p>
-                <button>Saiba Mais</button>             
+                <button>Saiba Mais</button>
             </div>
         </header>
+
+        <div class="sidebar">
+            <nav> <!--para navegacao-->
+                <ul class="menu">
+                    <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Conhecimentos</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Projetos</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Contatos</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Orçamento</a></li>
+                </ul>
+            </nav>
+                <div class="social-media">
+                    <a href=""><i class="fab fa-facebook"></i></a> <!--class faz parte do fontawesome-->
+                    <a href=""><i class="fab fa-github"></i></a> 
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                </div>
+        </div>
+
     </div>
 
 </body>
 
+    <script src="script.js"></script>
 </html>
